@@ -94,7 +94,7 @@ export default {
       this.$_mediaRecorder.addEventListener('stop', () => {
         this.$emit('stop')
 
-        const blobData = new Blob(this.chunks)
+        const blobData = new Blob(this.chunks, {type : 'audio/ogg;codecs=opus'})
         if (blobData.size > 0) {
           this.$emit('result', blobData)
         }
